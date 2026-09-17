@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alejandro Fuentes — iOS Developer &amp; Tennis Player</title>
+<title>Alejandro — iOS Developer &amp; Tennis Player</title>
 <style>
   :root{
     --bg: #0a0f0c;
@@ -204,53 +204,88 @@
 
   .project{
     display: grid;
-    grid-template-columns: 220px 1fr;
+    grid-template-columns: 300px 1fr;
     gap: 40px;
     align-items: center;
   }
 
-  .watch{
-    width: 220px;
-    height: 260px;
-    background: #050805;
-    border-radius: 34% / 28%;
-    border: 6px solid #1c231d;
-    box-shadow: inset 0 0 0 1px rgba(198,241,53,0.08);
+  /* Device mockups: a watch beside a phone, both mirroring one live match */
+  .devices{
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
+    gap: 18px;
+  }
+
+  .device{
+    background: #050805;
+    border: 6px solid #1c231d;
+    box-shadow: inset 0 0 0 1px rgba(198,241,53,0.08);
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 9px;
+    gap: 5px;
   }
 
-  .watch .set-label{
-    color: var(--ink-muted);
-    font-size: 0.7rem;
-    letter-spacing: 0.02em;
-  }
-
-  .watch .score{
-    font-variant-numeric: tabular-nums;
-    font-weight: 700;
-    font-size: 2.1rem;
+  .device .app-title{
     color: var(--ball);
-    text-shadow: 0 0 18px rgba(198,241,53,0.35);
+    font-size: 0.62rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 0 0 12px rgba(198,241,53,0.3);
   }
 
-  .watch .score-sub{
-    font-variant-numeric: tabular-nums;
-    font-size: 1rem;
-    color: rgba(198,241,53,0.55);
+  .device .row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    background: rgba(241,243,238,0.06);
+    border-radius: 7px;
+    padding: 5px 7px;
   }
 
-  .watch .ball-dot{
-    margin-top: 10px;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--ball);
-    box-shadow: 0 0 10px rgba(198,241,53,0.7);
+  .device .who{ display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+  .device .name{ display: flex; align-items: center; gap: 4px; font-size: 0.62rem; font-weight: 700; color: var(--ink); }
+  .device .serve{ width: 5px; height: 5px; border-radius: 50%; background: #ffd60a; box-shadow: 0 0 5px rgba(255,214,10,0.75); flex-shrink: 0; }
+  .device .setline{ font-size: 0.5rem; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+  .device .pt{ font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
+
+  /* Watch: squircle case with Undo / Reset controls along the bottom */
+  .watch{
+    width: 150px;
+    height: 186px;
+    border-radius: 34% / 28%;
   }
+  .watch .pt{ font-size: 1.15rem; }
+  .watch .controls{ margin-top: auto; display: flex; gap: 7px; justify-content: center; padding-top: 2px; }
+  .watch .ctrl{
+    width: 22px; height: 22px; border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .watch .ctrl svg{ width: 11px; height: 11px; }
+  .watch .ctrl.undo{ background: rgba(241,243,238,0.12); color: var(--ink); }
+  .watch .ctrl.reset{ background: var(--clay); color: #fff; }
+
+  /* Phone: taller case, bigger score, connection-status strip along the bottom */
+  .phone{
+    width: 120px;
+    height: 214px;
+    border-radius: 22px;
+    padding-top: 16px;
+  }
+  .phone .name{ color: #e8863a; }   /* orange player names, matching the iOS app */
+  .phone .pt{ font-size: 1.7rem; }
+  .phone .status{
+    margin-top: auto;
+    display: flex;
+    gap: 9px;
+    justify-content: center;
+    padding-top: 4px;
+    color: rgba(198,241,53,0.62);
+  }
+  .phone .status svg{ width: 12px; height: 12px; }
 
   .project-body h3{
     font-size: 1.3rem;
@@ -349,7 +384,7 @@
 
     <div class="wrap hero-content">
       <p class="eyebrow-role">iOS Developer<span class="dot"></span>Tennis Player</p>
-      <h1>Alejandro Fuentes</h1>
+      <h1>Alejandro</h1>
       <p class="tagline">
         Building thoughtful apps for Apple platforms.
         <span>When I'm not coding, you'll probably find me on a tennis court.</span>
@@ -362,19 +397,62 @@
     <section id="project">
       <h2>Featured project</h2>
       <div class="project">
-        <div class="watch">
-          <span class="set-label">Set 2</span>
-          <span class="score">6&#8209;4&nbsp; 3&#8209;2</span>
-          <span class="score-sub">Ad&nbsp;&middot;&nbsp;40</span>
-          <span class="ball-dot"></span>
+        <div class="devices">
+          <div class="device watch" role="img" aria-label="TapTennis on Apple Watch: You 40 serving, Opponent 30, with Undo and Reset buttons">
+            <span class="app-title">TapTennis</span>
+            <div class="row">
+              <span class="who">
+                <span class="name"><span class="serve"></span>You</span>
+                <span class="setline">6 &middot; Games 3</span>
+              </span>
+              <span class="pt">40</span>
+            </div>
+            <div class="row">
+              <span class="who">
+                <span class="name">Opponent</span>
+                <span class="setline">4 &middot; Games 2</span>
+              </span>
+              <span class="pt">30</span>
+            </div>
+            <div class="controls">
+              <span class="ctrl undo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7 4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-1"/></svg></span>
+              <span class="ctrl reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4v4h-4"/><path d="M21 8a8 8 0 1 0 .7 4"/></svg></span>
+            </div>
+          </div>
+
+          <div class="device phone" role="img" aria-label="TapTennis iPhone companion mirroring the same live score with a connection-status strip">
+            <span class="app-title">TapTennis</span>
+            <div class="row">
+              <span class="who">
+                <span class="name"><span class="serve"></span>You</span>
+                <span class="setline">6 &middot; Games 3</span>
+              </span>
+              <span class="pt">40</span>
+            </div>
+            <div class="row">
+              <span class="who">
+                <span class="name">Opponent</span>
+                <span class="setline">4 &middot; Games 2</span>
+              </span>
+              <span class="pt">30</span>
+            </div>
+            <div class="status">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-6z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="3"/><path d="M9 7l.6-3h4.8L15 7M9 17l.6 3h4.8l.6-3" stroke-linecap="round"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12a10 10 0 0 1 14 0"/><path d="M8 15a6 6 0 0 1 8 0"/><circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+            </div>
+          </div>
         </div>
         <div class="project-body">
           <h3>TapTennis</h3>
-          <p>A tennis scoring app built for watchOS, designed to make keeping score during a match simple and effortless.</p>
+          <p>A tennis scoring app for Apple Watch that makes keeping score during a match simple and effortless — one tap per point, and it handles games, sets, tiebreaks, and deuce automatically. A companion iPhone app mirrors the live score in real time.</p>
           <div class="tags">
             <span>Swift</span><span class="sep">&middot;</span>
             <span>SwiftUI</span><span class="sep">&middot;</span>
-            <span>watchOS</span>
+            <span>watchOS</span><span class="sep">&middot;</span>
+            <span>iOS</span><span class="sep">&middot;</span>
+            <span>Watch Connectivity</span>
           </div>
         </div>
       </div>
@@ -384,7 +462,7 @@
 
     <section id="about">
       <h2>About</h2>
-      <p>I'm Alejandro Fuentes, an iOS developer with a passion for building apps that feel native, focused, and useful.</p>
+      <p>I'm Alejandro, an iOS developer with a passion for building apps that feel native, focused, and useful.</p>
       <p>I'm also a recreational tennis player with a <strong>3.5 rating</strong>. I started playing in <strong>August 2024</strong>, and tennis has quickly become more than just a hobby — it's also become a source of inspiration for the apps I'm building.</p>
     </section>
 
@@ -419,7 +497,7 @@
 
   <footer>
     <div class="wrap">
-      <p style="margin:0; max-width:none;">Alejandro Fuentes</p>
+      <p style="margin:0; max-width:none;">Alejandro</p>
     </div>
   </footer>
 
