@@ -252,7 +252,7 @@
   .device .setline{ font-size: 0.5rem; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
   .device .pt{ font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
 
-  /* Watch: squircle case with Undo / Reset controls along the bottom */
+  /* Watch: squircle case with Undo / New Game controls along the bottom */
   .watch{
     width: 150px;
     height: 186px;
@@ -266,7 +266,7 @@
   }
   .watch .ctrl svg{ width: 11px; height: 11px; }
   .watch .ctrl.undo{ background: rgba(241,243,238,0.12); color: var(--ink); }
-  .watch .ctrl.reset{ background: var(--clay); color: #fff; }
+  .watch .ctrl.newgame{ background: var(--ball); color: var(--bg); }
 
   /* Phone: taller case, bigger score, connection-status strip along the bottom */
   .phone{
@@ -411,7 +411,7 @@
       <h2>Featured project</h2>
       <div class="project">
         <div class="devices">
-          <div class="device watch" role="img" aria-label="TapTennis on Apple Watch: You 40 serving, Opponent 30, with Undo and Reset buttons">
+          <div class="device watch" role="img" aria-label="TapTennis on Apple Watch: You 40 serving, Opponent 30, with Undo and New Game buttons">
             <span class="app-title">TapTennis</span>
             <div class="row">
               <span class="who">
@@ -429,7 +429,7 @@
             </div>
             <div class="controls">
               <span class="ctrl undo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7 4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-1"/></svg></span>
-              <span class="ctrl reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4v4h-4"/><path d="M21 8a8 8 0 1 0 .7 4"/></svg></span>
+              <span class="ctrl newgame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
             </div>
           </div>
 
@@ -459,7 +459,7 @@
         </div>
         <div class="project-body">
           <h3>TapTennis</h3>
-          <p>A tennis scoring app for Apple Watch that makes keeping score during a match simple and effortless — one tap per point, and it handles games, sets, tiebreaks, and deuce automatically. A companion iPhone app mirrors the live score in real time.</p>
+          <p>A tennis scoring app for Apple Watch that makes keeping score during a match simple and effortless — one tap per point, and it handles games, sets, tiebreaks, and deuce automatically. It saves your recent matches on-device, and a companion iPhone app mirrors the live score in real time.</p>
           <div class="tags">
             <span>Swift</span><span class="sep">&middot;</span>
             <span>SwiftUI</span><span class="sep">&middot;</span>
