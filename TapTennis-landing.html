@@ -1,0 +1,535 @@
+<title>TapTennis</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+  :root{
+    --paper:#F6F4EC;
+    --surface:#FFFFFF;
+    --surface-2:#ECEADC;
+    --ink:#16241A;
+    --muted:#5B6B5C;
+    --line:#D8D4C2;
+    --court:#1F4D3A;
+    --court-2:#173B2C;
+    --ball:#D7E332;
+    --ball-ink:#2C3300;
+    --clay:#B5502E;
+    --shadow: 0 20px 45px -25px rgba(23,59,44,0.35);
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#0E1811;
+      --surface:#152218;
+      --surface-2:#1B2B1F;
+      --ink:#EFEEE2;
+      --muted:#9AA79A;
+      --line:#26372A;
+      --court:#D7E332;
+      --court-2:#C3CC2E;
+      --ball:#D7E332;
+      --ball-ink:#1B2200;
+      --clay:#E0764B;
+      --shadow: 0 20px 45px -25px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#0E1811;
+    --surface:#152218;
+    --surface-2:#1B2B1F;
+    --ink:#EFEEE2;
+    --muted:#9AA79A;
+    --line:#26372A;
+    --court:#D7E332;
+    --court-2:#C3CC2E;
+    --ball:#D7E332;
+    --ball-ink:#1B2200;
+    --clay:#E0764B;
+    --shadow: 0 20px 45px -25px rgba(0,0,0,0.6);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Public Sans', system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-inline:20px;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Bricolage Grotesque', 'Public Sans', system-ui, sans-serif;
+    text-wrap:balance;
+    margin:0;
+  }
+  .wrap{max-width:1080px;margin-inline:auto;}
+  a{color:inherit;}
+
+  /* ---------- nav ---------- */
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-block:22px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:700;font-size:1.15rem;letter-spacing:-0.01em;
+  }
+  .brand .dot{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--ball);
+    box-shadow:inset -2px -2px 0 rgba(0,0,0,0.15);
+  }
+  .nav-cta{
+    font-size:0.85rem;font-weight:600;
+    padding:9px 16px;border-radius:999px;
+    background:var(--court);color:var(--paper);
+    border:1px solid var(--court);
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  :root[data-theme="dark"] .nav-cta, @media (prefers-color-scheme:dark){ }
+
+  /* ---------- hero ---------- */
+  .hero{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:40px;
+    align-items:center;
+    padding-block:28px 56px;
+    position:relative;
+  }
+  @media (max-width:760px){
+    .hero{grid-template-columns:1fr;padding-block:8px 40px;}
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";width:7px;height:7px;border-radius:50%;background:var(--clay);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5.4vw, 3.6rem);
+    line-height:1.03;
+    font-weight:700;
+    letter-spacing:-0.02em;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--court);
+    background:linear-gradient(transparent 62%, var(--ball) 62%);
+    padding-inline:2px;
+  }
+  @media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .hero h1 em{ color:var(--ink); background:linear-gradient(transparent 60%, rgba(215,227,50,0.35) 60%);} }
+  :root[data-theme="dark"] .hero h1 em{ color:var(--ink); background:linear-gradient(transparent 60%, rgba(215,227,50,0.35) 60%);}
+
+  .hero p.lede{
+    margin-top:20px;
+    font-size:1.08rem;
+    color:var(--muted);
+    max-width:46ch;
+    line-height:1.55;
+  }
+  .hero-ctas{
+    margin-top:30px;
+    display:flex;gap:12px;flex-wrap:wrap;
+  }
+  .btn-primary, .btn-ghost{
+    font-family:'Public Sans', sans-serif;
+    font-weight:600;font-size:0.95rem;
+    padding:13px 22px;border-radius:12px;
+    text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+  }
+  .btn-primary{
+    background:var(--court);color:var(--paper);
+    box-shadow:var(--shadow);
+  }
+  .btn-ghost{
+    color:var(--ink);
+    border:1.5px solid var(--line);
+    background:transparent;
+  }
+
+  /* ---------- watch mock ---------- */
+  .watch-stage{
+    display:flex;justify-content:center;
+    perspective:1200px;
+  }
+  .watch{
+    width:min(280px, 78vw);
+    aspect-ratio:220/268;
+    background:var(--court-2);
+    border-radius:54px;
+    padding:14px;
+    position:relative;
+    box-shadow: var(--shadow), inset 0 0 0 3px rgba(255,255,255,0.06);
+    transform:rotate(-3deg);
+  }
+  .watch::after{
+    content:"";
+    position:absolute;
+    right:-7px;top:38%;
+    width:9px;height:15%;
+    background:var(--court-2);
+    border-radius:4px 8px 8px 4px;
+    box-shadow: 2px 0 0 rgba(0,0,0,0.15);
+  }
+  .watch-face{
+    width:100%;height:100%;
+    background:#0B140D;
+    border-radius:40px;
+    padding:16px 14px 12px;
+    display:flex;flex-direction:column;
+    color:#F1F5EA;
+  }
+  .watch-title{
+    text-align:center;
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    color:var(--ball);
+    letter-spacing:0.01em;
+    margin-bottom:10px;
+  }
+  .watch-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:9px 4px;
+    border-bottom:1px solid rgba(241,245,234,0.1);
+  }
+  .watch-row:last-of-type{border-bottom:none;}
+  .watch-row .who{
+    font-size:0.72rem;font-weight:600;color:#B9C3AE;
+    letter-spacing:0.03em;
+  }
+  .watch-row.active .who{color:var(--ball);}
+  .watch-row .pts{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;font-size:1.15rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .watch-sets{
+    display:flex;gap:5px;margin-top:2px;margin-bottom:8px;justify-content:flex-end;
+    font-family:'IBM Plex Mono', monospace;font-size:0.62rem;color:#8FA087;
+  }
+  .watch-actions{
+    margin-top:auto;
+    display:flex;gap:8px;
+  }
+  .watch-actions span{
+    flex:1;text-align:center;
+    font-size:0.66rem;font-weight:600;
+    padding:8px 0;border-radius:10px;
+    background:rgba(241,245,234,0.08);
+    color:#D6DECB;
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding-block:52px;}
+  .section-head{
+    max-width:56ch;margin-bottom:34px;
+  }
+  .section-head .eyebrow{margin-bottom:12px;}
+  .section-head h2{
+    font-size:clamp(1.6rem, 3.2vw, 2.15rem);
+    font-weight:700;letter-spacing:-0.015em;
+  }
+  .section-head p{
+    color:var(--muted);margin-top:12px;line-height:1.6;font-size:1rem;
+  }
+
+  /* ---------- rally strip (scoring sequence) ---------- */
+  .rally{
+    display:flex;align-items:center;gap:0;
+    flex-wrap:wrap;
+    border:1px solid var(--line);
+    background:var(--surface);
+    border-radius:18px;
+    padding:22px 18px;
+    overflow-x:auto;
+  }
+  .rally-step{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    min-width:74px;
+    padding-inline:8px;
+  }
+  .rally-step .val{
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:600;font-size:1.3rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .rally-step .lab{
+    font-size:0.68rem;color:var(--muted);
+    text-transform:uppercase;letter-spacing:0.06em;
+  }
+  .rally-arrow{color:var(--line);font-size:1.1rem;flex:0 0 auto;}
+  .rally-step.win .val{color:var(--court);}
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rally-step.win .val{color:var(--ball);}}
+  :root[data-theme="dark"] .rally-step.win .val{color:var(--ball);}
+
+  /* ---------- format chips ---------- */
+  .chip-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:14px;
+  }
+  .chip{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:20px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .chip .k{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;color:var(--clay);font-weight:600;
+    letter-spacing:0.04em;
+  }
+  .chip .v{
+    font-weight:700;font-size:1.02rem;
+  }
+  .chip .d{color:var(--muted);font-size:0.88rem;line-height:1.5;}
+
+  /* ---------- mirroring ---------- */
+  .mirror{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:30px;align-items:center;
+  }
+  @media (max-width:760px){.mirror{grid-template-columns:1fr;}}
+  .devices{
+    display:flex;align-items:flex-end;justify-content:center;gap:22px;
+  }
+  .phone{
+    width:min(170px,60vw);
+    aspect-ratio:9/17;
+    background:var(--court-2);
+    border-radius:32px;
+    padding:10px;
+    box-shadow:var(--shadow);
+  }
+  .phone-face{
+    background:#0B140D;
+    height:100%;border-radius:22px;
+    color:#F1F5EA;
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    gap:10px;
+    padding:16px;
+  }
+  .phone-face .live{
+    font-size:0.6rem;color:var(--ball);letter-spacing:0.1em;text-transform:uppercase;font-weight:700;
+    display:flex;align-items:center;gap:6px;
+  }
+  .phone-face .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ball);}
+  .phone-face .score{
+    font-family:'IBM Plex Mono', monospace;font-weight:600;font-size:1.6rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .phone-face .names{font-size:0.66rem;color:#9AA79A;text-align:center;}
+  .sync-line{
+    width:64px;height:2px;
+    background:repeating-linear-gradient(90deg, var(--ball) 0 6px, transparent 6px 12px);
+    align-self:center;
+    margin-bottom:60px;
+  }
+  @media (max-width:760px){.sync-line{display:none;}}
+
+  /* ---------- two screens ---------- */
+  .screens{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  }
+  @media (max-width:600px){.screens{grid-template-columns:1fr;}}
+  .screen-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:22px;
+  }
+  .screen-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;color:var(--clay);font-weight:600;
+    letter-spacing:0.05em;text-transform:uppercase;
+    margin-bottom:8px;display:block;
+  }
+  .screen-card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px;}
+  .screen-card p{color:var(--muted);font-size:0.92rem;line-height:1.55;margin:0;}
+
+  /* ---------- footer ---------- */
+  footer{
+    padding-block:44px 40px;
+    border-top:1px solid var(--line);
+    margin-top:20px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  }
+  footer .tagline{
+    font-family:'Bricolage Grotesque', sans-serif;
+    font-weight:600;font-size:1rem;
+  }
+  footer .meta{color:var(--muted);font-size:0.82rem;}
+</style>
+
+<div class="wrap">
+
+  <nav class="nav">
+    <div class="brand"><span class="dot"></span>TapTennis</div>
+    <a class="nav-cta" href="#">Get the app</a>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Apple Watch + iPhone</div>
+      <h1>Tennis scoring,<br><em>right on your wrist.</em></h1>
+      <p class="lede">Stop fumbling with your phone between points. TapTennis puts a complete, rules-accurate scoreboard on your watch — tap, play, and let it keep score.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#">View on the App Store</a>
+        <a class="btn-ghost" href="#features">See how it works</a>
+      </div>
+    </div>
+    <div class="watch-stage">
+      <div class="watch">
+        <div class="watch-face">
+          <div class="watch-title">TapTennis</div>
+          <div class="watch-sets">SET 1 · 4–3</div>
+          <div class="watch-row active">
+            <span class="who">YOU</span>
+            <span class="pts">40</span>
+          </div>
+          <div class="watch-row">
+            <span class="who">OPPONENT</span>
+            <span class="pts">30</span>
+          </div>
+          <div class="watch-actions">
+            <span>Undo</span>
+            <span>New Game</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="section-head">
+      <div class="eyebrow">The scoring engine</div>
+      <h2>Tap. Score. Play.</h2>
+      <p>Tap either player's row to award a point. Every rule of tennis is modeled underneath — deuce, advantage, and the 6-6 tiebreak included — so the score is never in question.</p>
+    </div>
+    <div class="rally">
+      <div class="rally-step"><span class="val">0</span><span class="lab">Love</span></div>
+      <span class="rally-arrow">→</span>
+      <div class="rally-step"><span class="val">15</span><span class="lab">Point</span></div>
+      <span class="rally-arrow">→</span>
+      <div class="rally-step"><span class="val">30</span><span class="lab">Point</span></div>
+      <span class="rally-arrow">→</span>
+      <div class="rally-step"><span class="val">40</span><span class="lab">Point</span></div>
+      <span class="rally-arrow">→</span>
+      <div class="rally-step"><span class="val">Deuce</span><span class="lab">Tied</span></div>
+      <span class="rally-arrow">→</span>
+      <div class="rally-step"><span class="val">Ad</span><span class="lab">Advantage</span></div>
+      <span class="rally-arrow">→</span>
+      <div class="rally-step win"><span class="val">Game</span><span class="lab">Won</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Match formats</div>
+      <h2>Built for real matches, not just rallies</h2>
+      <p>Set the rules once and TapTennis plays by them — change anything and it starts a clean new match automatically.</p>
+    </div>
+    <div class="chip-grid">
+      <div class="chip">
+        <span class="k">FORMAT</span>
+        <span class="v">Best of 3 or Best of 5</span>
+        <span class="d">Play a quick set or a full match — TapTennis tracks sets won and switches ends on schedule.</span>
+      </div>
+      <div class="chip">
+        <span class="k">SERVE</span>
+        <span class="v">Choose first server</span>
+        <span class="d">Set who serves first before the coin toss even lands.</span>
+      </div>
+      <div class="chip">
+        <span class="k">SPEED</span>
+        <span class="v">No-Ad scoring</span>
+        <span class="d">Sudden-point deuce for faster games when you're short on time.</span>
+      </div>
+      <div class="chip">
+        <span class="k">DECIDER</span>
+        <span class="v">10-point match tiebreak</span>
+        <span class="d">Skip a full deciding set with a 10-point breaker instead.</span>
+      </div>
+      <div class="chip">
+        <span class="k">SAFETY NET</span>
+        <span class="v">Undo, one point at a time</span>
+        <span class="d">Mis-tapped a point? Step backward through your score history instantly.</span>
+      </div>
+      <div class="chip">
+        <span class="k">NEW GAME</span>
+        <span class="v">Fresh match, one tap</span>
+        <span class="d">Start over any time — your settings carry forward, and the match you just played is saved to your history.</span>
+      </div>
+      <div class="chip">
+        <span class="k">HISTORY</span>
+        <span class="v">Your last 10 matches</span>
+        <span class="d">Every finished match is kept on-device with its result, set scores, and date — review or delete them in Settings.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mirror">
+      <div>
+        <div class="eyebrow">Live iPhone mirroring</div>
+        <h2>Your phone becomes the sideline screen</h2>
+        <p style="color:var(--muted); margin-top:14px; line-height:1.6;">The watch keeps score — the iPhone just watches. Your live score updates in real time over Watch Connectivity, so a coach, partner, or parent courtside can follow along without ever touching the watch.</p>
+      </div>
+      <div class="devices">
+        <div class="watch" style="transform:rotate(4deg);">
+          <div class="watch-face">
+            <div class="watch-title">TapTennis</div>
+            <div class="watch-row active"><span class="who">YOU</span><span class="pts">40</span></div>
+            <div class="watch-row"><span class="who">OPP</span><span class="pts">30</span></div>
+            <div class="watch-actions"><span>Undo</span><span>New Game</span></div>
+          </div>
+        </div>
+        <div class="sync-line"></div>
+        <div class="phone">
+          <div class="phone-face">
+            <div class="live">Live</div>
+            <div class="score">40&nbsp;–&nbsp;30</div>
+            <div class="names">YOU vs OPPONENT · Set 1, 4–3</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <div class="eyebrow">Two screens, nothing extra</div>
+      <h2>Designed for the court</h2>
+    </div>
+    <div class="screens">
+      <div class="screen-card">
+        <span class="tag">Scoreboard</span>
+        <h3>Tap, glance, keep playing</h3>
+        <p>The main screen — tap to score, watch the match unfold, and reach Undo or start a New Game without breaking your stride between points.</p>
+      </div>
+      <div class="screen-card">
+        <span class="tag">Settings</span>
+        <h3>Set it once, then forget it</h3>
+        <p>Match format, first server, and scoring rules — dial them in, review your match history, hit Done, and you're back on the scoreboard.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="tagline">TapTennis — tennis scoring made effortless.</div>
+    <div class="meta">Available on Apple Watch, mirrored to iPhone.</div>
+  </footer>
+
+</div>
