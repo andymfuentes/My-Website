@@ -267,25 +267,7 @@
   .watch .ctrl svg{ width: 11px; height: 11px; }
   .watch .ctrl.undo{ background: rgba(241,243,238,0.12); color: var(--ink); }
   .watch .ctrl.newgame{ background: var(--ball); color: var(--bg); }
-
-  /* Phone: taller case, bigger score, connection-status strip along the bottom */
-  .phone{
-    width: 120px;
-    height: 214px;
-    border-radius: 22px;
-    padding-top: 16px;
-  }
-  .phone .name{ color: #e8863a; }   /* orange player names, matching the iOS app */
-  .phone .pt{ font-size: 1.7rem; }
-  .phone .status{
-    margin-top: auto;
-    display: flex;
-    gap: 9px;
-    justify-content: center;
-    padding-top: 4px;
-    color: rgba(198,241,53,0.62);
-  }
-  .phone .status svg{ width: 12px; height: 12px; }
+  .watch .ctrl.end{ background: var(--clay); color: var(--ink); }
 
   .project-body h3{
     font-size: 1.3rem;
@@ -433,39 +415,33 @@
             </div>
           </div>
 
-          <div class="device phone" role="img" aria-label="TapTennis iPhone companion mirroring the same live score with a connection-status strip">
-            <span class="app-title">TapTennis</span>
+          <div class="device watch" role="img" aria-label="TapTennis workout on Apple Watch: heart rate 142 BPM, zone 3, elapsed time 24:18, with an End Workout button">
+            <span class="app-title">Workout</span>
             <div class="row">
-              <span class="who">
-                <span class="name"><span class="serve"></span>You</span>
-                <span class="setline">6 &middot; Games 3</span>
-              </span>
-              <span class="pt">40</span>
+              <span class="who"><span class="name">Heart Rate</span></span>
+              <span class="pt">142</span>
             </div>
             <div class="row">
-              <span class="who">
-                <span class="name">Opponent</span>
-                <span class="setline">4 &middot; Games 2</span>
-              </span>
-              <span class="pt">30</span>
+              <span class="who"><span class="name">Zone</span></span>
+              <span class="pt">Z3</span>
             </div>
-            <div class="status">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-6z"/></svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 15l6-6"/><path d="M11 6l1-1a4 4 0 0 1 6 6l-1 1"/><path d="M13 18l-1 1a4 4 0 0 1-6-6l1-1"/></svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="3"/><path d="M9 7l.6-3h4.8L15 7M9 17l.6 3h4.8l.6-3" stroke-linecap="round"/></svg>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12a10 10 0 0 1 14 0"/><path d="M8 15a6 6 0 0 1 8 0"/><circle cx="12" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+            <div class="row">
+              <span class="who"><span class="name">Time</span></span>
+              <span class="pt" style="font-size:0.95rem;">24:18</span>
+            </div>
+            <div class="controls">
+              <span class="ctrl end"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></span>
             </div>
           </div>
         </div>
         <div class="project-body">
           <h3>TapTennis</h3>
-          <p>A tennis scoring app for Apple Watch that makes keeping score during a match simple and effortless — one tap per point, and it handles games, sets, tiebreaks, and deuce automatically. It saves your recent matches on-device, and a companion iPhone app mirrors the live score in real time.</p>
+          <p>A tennis scoring app for Apple Watch that makes keeping score during a match simple and effortless — one tap per point, and it handles games, sets, tiebreaks, and deuce automatically. It saves your recent matches on-device, and an optional HealthKit workout tracks your heart rate and training zones while you play.</p>
           <div class="tags">
             <span>Swift</span><span class="sep">&middot;</span>
             <span>SwiftUI</span><span class="sep">&middot;</span>
             <span>watchOS</span><span class="sep">&middot;</span>
-            <span>iOS</span><span class="sep">&middot;</span>
-            <span>Watch Connectivity</span>
+            <span>HealthKit</span>
           </div>
           <a class="project-link" href="https://andymfuentes.github.io/My-Website/Support.html#overview">
             Support &amp; FAQ
