@@ -163,7 +163,7 @@
   }
   .watch{
     width:min(280px, 78vw);
-    aspect-ratio:220/268;
+    aspect-ratio:220/215;
     background:var(--court-2);
     border-radius:54px;
     padding:14px;
@@ -218,7 +218,7 @@
     font-family:'IBM Plex Mono', monospace;font-size:0.62rem;color:#8FA087;
   }
   .watch-actions{
-    margin-top:auto;
+    margin-top:10px;
     display:flex;gap:8px;
   }
   .watch-actions span{
@@ -394,18 +394,23 @@
       <div class="watch">
         <div class="watch-face">
           <div class="watch-title">TapTennis</div>
-          <div class="watch-sets">SET 1 · 4–3</div>
           <div class="watch-row active">
-            <span class="who">YOU</span>
+            <span class="who" style="display:flex;flex-direction:column;gap:1px;">
+              <span style="display:flex;align-items:center;gap:4px;"><span style="width:5px;height:5px;border-radius:50%;background:#FFD60A;display:inline-block;"></span>YOU</span>
+              <span style="font-size:0.6rem;color:#8FA087;font-weight:500;letter-spacing:0;">6 · Games 3</span>
+            </span>
             <span class="pts">40</span>
           </div>
           <div class="watch-row">
-            <span class="who">OPPONENT</span>
+            <span class="who" style="display:flex;flex-direction:column;gap:1px;">
+              <span>OPPONENT</span>
+              <span style="font-size:0.6rem;color:#8FA087;font-weight:500;letter-spacing:0;">4 · Games 2</span>
+            </span>
             <span class="pts">30</span>
           </div>
           <div class="watch-actions">
-            <span>Undo</span>
-            <span>New Game</span>
+            <span aria-label="Undo"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M9 7 4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-1"/></svg></span>
+            <span aria-label="New Game" style="background:var(--ball);color:var(--court-2);"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle;"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
           </div>
         </div>
       </div>
