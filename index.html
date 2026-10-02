@@ -41,8 +41,6 @@
     padding: 0 28px;
   }
 
-  /* ---------- Hero ---------- */
-
   .hero{
     position: relative;
     min-height: 92vh;
@@ -143,8 +141,6 @@
     to{ opacity: 1; transform: translateY(0); }
   }
 
-  /* ---------- Sections ---------- */
-
   section{
     padding: 76px 0;
   }
@@ -200,8 +196,6 @@
 
   strong{ color: var(--ink); font-weight: 600; }
 
-  /* ---------- Featured project ---------- */
-
   .project{
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -209,7 +203,6 @@
     align-items: center;
   }
 
-  /* Device mockups: a watch beside a phone, both mirroring one live match */
   .devices{
     display: flex;
     align-items: center;
@@ -252,12 +245,7 @@
   .device .setline{ font-size: 0.5rem; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
   .device .pt{ font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
 
-  /* Watch: squircle case with Undo / New Game controls along the bottom */
-  .watch{
-    width: 150px;
-    height: 186px;
-    border-radius: 34% / 28%;
-  }
+  .watch{ width: 150px; height: 186px; border-radius: 34% / 28%; }
   .watch .pt{ font-size: 1.15rem; }
   .watch .controls{ margin-top: auto; display: flex; gap: 7px; justify-content: center; padding-top: 2px; }
   .watch .ctrl{
@@ -290,8 +278,14 @@
 
   .tags .sep{ color: var(--line); }
 
-  .project-link{
+  .project-links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-top: 18px;
+  }
+
+  .project-link{
     display: inline-flex;
     align-items: center;
     gap: 6px;
@@ -302,8 +296,6 @@
   }
   .project-link:hover{ text-decoration: underline; }
   .project-link svg{ width: 13px; height: 13px; }
-
-  /* ---------- Tennis scoreboard ---------- */
 
   .scoreboard{
     background: var(--bg-panel);
@@ -341,8 +333,6 @@
     .scoreboard{ grid-template-columns: 1fr; gap: 28px; }
   }
 
-  /* ---------- Footer ---------- */
-
   footer{
     padding: 48px 0 64px;
     color: var(--ink-muted);
@@ -363,17 +353,12 @@
 
   <section class="hero">
     <svg class="court-graphic" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
-      <!-- outer doubles court -->
       <path d="M 400 80 L 600 80 L 850 560 L 150 560 Z" />
-      <!-- singles sidelines -->
       <path d="M 440 80 L 250 560" />
       <path d="M 560 80 L 750 560" />
-      <!-- net line -->
       <path d="M 264.6 340 L 735.4 340" />
-      <!-- far and near service lines -->
       <path d="M 337.5 200 L 662.5 200" />
       <path d="M 202.1 460 L 797.9 460" />
-      <!-- center service line -->
       <path class="center-line" d="M 500 200 L 500 460" />
     </svg>
 
@@ -415,38 +400,25 @@
             </div>
           </div>
 
-          <div class="device watch" role="img" aria-label="TapTennis workout on Apple Watch: heart rate 142 BPM, zone 3, elapsed time 24:18, with an End Workout button">
-            <span class="app-title">Workout</span>
-            <div class="row">
-              <span class="who"><span class="name">Heart Rate</span></span>
-              <span class="pt">142</span>
-            </div>
-            <div class="row">
-              <span class="who"><span class="name">Zone</span></span>
-              <span class="pt">Z3</span>
-            </div>
-            <div class="row">
-              <span class="who"><span class="name">Time</span></span>
-              <span class="pt" style="font-size:0.95rem;">24:18</span>
-            </div>
-            <div class="controls">
-              <span class="ctrl end"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="2"/></svg></span>
-            </div>
-          </div>
         </div>
         <div class="project-body">
           <h3>TapTennis</h3>
-          <p>A tennis scoring app for Apple Watch that makes keeping score during a match simple and effortless — one tap per point, and it handles games, sets, tiebreaks, and deuce automatically. It saves your recent matches on-device, and an optional HealthKit workout tracks your heart rate and training zones while you play.</p>
+          <p>A tennis scoring app for Apple Watch built around fast, accurate match tracking — one tap per point, with automatic deuce and advantage handling, set progression, and tiebreaks. A result screen and on-device match history let you review how each match went.</p>
           <div class="tags">
             <span>Swift</span><span class="sep">&middot;</span>
             <span>SwiftUI</span><span class="sep">&middot;</span>
-            <span>watchOS</span><span class="sep">&middot;</span>
-            <span>HealthKit</span>
+            <span>watchOS</span>
           </div>
-          <a class="project-link" href="taptennis/support.html#overview">
-            Support &amp; FAQ
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
-          </a>
+          <div class="project-links">
+            <a class="project-link" href="taptennis/index.html">
+              View app page
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+            <a class="project-link" href="taptennis/support.html#overview">
+              Support &amp; FAQ
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
