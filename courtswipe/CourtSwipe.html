@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CourtSwipe — Tennis Score Keeper for Apple Watch</title>
+<meta name="description" content="Score your tennis match with a swipe. Automatic points, games, sets, and tiebreaks — all on your Apple Watch, no phone needed.">
+<style>
+  :root {
+    --court-green: #d4ff4d;
+    --court-blue: #8fc7ff;
+    --bg: #0a0a0a;
+    --panel: #161616;
+    --text: #f5f5f5;
+    --muted: #9a9a9a;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    padding: 96px 0 64px;
+    text-align: center;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--court-green);
+    padding: 6px 14px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: clamp(32px, 6vw, 56px);
+    font-weight: 800;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+  .tagline {
+    font-size: clamp(16px, 2.4vw, 20px);
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+  .cta {
+    display: inline-block;
+    background: var(--court-green);
+    color: #0a0a0a;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    text-decoration: none;
+  }
+  .cta:hover { opacity: 0.9; }
+  .price-note {
+    margin-top: 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  section.features {
+    padding: 48px 0 80px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--panel);
+    border-radius: 18px;
+    padding: 26px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .card h3 {
+    margin: 0 0 8px;
+    font-size: 17px;
+    color: var(--court-green);
+  }
+  .card p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  section.howitworks {
+    padding: 0 0 80px;
+  }
+  section.howitworks h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+  .swipe-demo {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .swipe-demo .step {
+    flex: 1;
+    min-width: 220px;
+    background: var(--panel);
+    border-radius: 18px;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .swipe-demo .step .arrow {
+    font-size: 28px;
+    color: var(--court-blue);
+    margin-bottom: 10px;
+  }
+
+  footer {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 32px 0 64px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  footer a {
+    color: var(--court-blue);
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge">Apple Watch · Singles Tennis</span>
+    <h1>Score tennis with a swipe.</h1>
+    <p class="tagline">
+      No buttons to hunt for mid-rally. Swipe right-to-left when you win a
+      point, left-to-right when you don't — CourtSwipe handles the rest,
+      right on your wrist.
+    </p>
+    <a class="cta" href="[APP_STORE_LINK]">Download on the App Store</a>
+    <div class="price-note">$1.99 · one-time purchase · no ads · no account</div>
+  </div>
+</header>
+
+<section class="features">
+  <div class="wrap">
+    <div class="grid">
+      <div class="card">
+        <h3>Swipe to score</h3>
+        <p>Right-to-left wins the point, left-to-right loses it — anywhere
+        on the screen, with a haptic tap to confirm.</p>
+      </div>
+      <div class="card">
+        <h3>Automatic scoring</h3>
+        <p>Points, games, sets, deuce, advantage, and 6-6 tiebreaks — all
+        handled for you, correctly, every time.</p>
+      </div>
+      <div class="card">
+        <h3>Undo anything</h3>
+        <p>One tap undoes the last point. Keep tapping to step back as far
+        as you need, all the way to 0-0.</p>
+      </div>
+      <div class="card">
+        <h3>Your rules</h3>
+        <p>Best of 3 or 5, optional no-ad scoring, optional 10-point final
+        set tiebreak.</p>
+      </div>
+      <div class="card">
+        <h3>Match history</h3>
+        <p>Your last 50 matches, saved right on your watch — final score,
+        duration, breaks, and serve percentage.</p>
+      </div>
+      <div class="card">
+        <h3>Totally private</h3>
+        <p>No account, no internet connection, no analytics. Everything
+        stays on your watch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="howitworks">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="swipe-demo">
+      <div class="step">
+        <div class="arrow">←</div>
+        <strong>Swipe right-to-left</strong>
+        <p>You win the point.</p>
+      </div>
+      <div class="step">
+        <div class="arrow">→</div>
+        <strong>Swipe left-to-right</strong>
+        <p>Your opponent wins the point.</p>
+      </div>
+      <div class="step">
+        <div class="arrow">↺</div>
+        <strong>Tap to undo</strong>
+        <p>Mis-swiped? Tap the bottom bar to step back a point at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="CourtSwipeSupport.md">Support</a>
+      <a href="PrivacyPolicy.md">Privacy Policy</a>
+      <a href="mailto:[andymfuentes@yahoo.com]">Contact</a>
+    </div>
+    <div style="margin-top: 16px;">&copy; 2026 Alejandro. CourtSwipe is not affiliated with Wimbledon, the ATP, or the WTA.</div>
+  </div>
+</footer>
+
+</body>
+</html>
