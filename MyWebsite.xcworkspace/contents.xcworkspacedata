@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <Group
+      location = "group:courtswipe"
+      name = "courtswipe">
+      <FileRef
+         location = "group:index.html">
+      </FileRef>
+      <FileRef
+         location = "group:promo.html">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:index.html">
+   </FileRef>
+   <Group
+      location = "group:taptennis"
+      name = "taptennis">
+      <FileRef
+         location = "group:index.html">
+      </FileRef>
+      <FileRef
+         location = "group:support.html">
+      </FileRef>
+   </Group>
+</Workspace>
