@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CourtSwipe — Tennis Score Keeper for Apple Watch</title>
-<meta name="description" content="Score your tennis match with a swipe. Automatic points, games, sets, and tiebreaks — all on your Apple Watch, no phone needed.">
+<title>CourtSwipe — Tennis Score Keeper for Watch</title>
+<meta name="description" content="Score your tennis match with a swipe. Automatic games, sets, and tiebreaks on your Apple Watch, plus an optional iPhone companion that mirrors the live score and archives matches.">
 <style>
   :root {
     --court-green: #d4ff4d;
@@ -28,11 +28,11 @@
     padding: 96px 0 64px;
     text-align: center;
   }
-  .brand {
-    font-size: 20px;
+  .app-name {
+    font-size: clamp(40px, 8vw, 72px);
     font-weight: 800;
-    letter-spacing: -0.01em;
-    color: var(--text);
+    letter-spacing: -0.03em;
+    color: var(--court-green);
     margin-bottom: 20px;
   }
   .badge {
@@ -144,10 +144,10 @@
 </head>
 <body>
 
-<header class="hero" id="top">
+<header class="hero">
   <div class="wrap">
-    <div class="brand">CourtSwipe</div>
-    <span class="badge">Apple Watch · Singles Tennis</span>
+    <div class="app-name">CourtSwipe</div>
+    <span class="badge">Apple Watch · Singles &amp; Doubles</span>
     <h1>Score tennis with a swipe.</h1>
     <p class="tagline">
       No buttons to hunt for mid-rally. Swipe right-to-left when you win a
@@ -179,18 +179,31 @@
       </div>
       <div class="card">
         <h3>Your rules</h3>
-        <p>Best of 3 or 5, optional no-ad scoring, optional 10-point final
-        set tiebreak.</p>
+        <p>Best of 3 or 5, or fixed 1- or 3-set sessions of 4, 6 or 8 games.
+            Optional no-ad scoring and 10-point deciding set. Five built-in presets,
+            plus a list of regular opponents.</p>
       </div>
+      <div class="card">
+        <h3>Singles or doubles</h3>
+        <p>Doubles shows You/P2 against P3/P4. Rotate partners each set for a
+        social night, and every player is credited with their own games.</p>
+      </div>
+
       <div class="card">
         <h3>Match history</h3>
         <p>Your last 50 matches, saved right on your watch — final score,
         duration, breaks, and serve percentage.</p>
       </div>
       <div class="card">
+        <h3>iPhone companion</h3>
+        <p>Optional. Mirrors your live score in real time, archives your
+            finished matches, and lets you create and edit presets on a big
+            screen. The watch works fully on its own.</p>
+      </div>
+      <div class="card">
         <h3>Totally private</h3>
         <p>No account, no internet connection, no analytics. Everything
-        stays on your watch.</p>
+        stays on your own devices.</p>
       </div>
     </div>
   </div>
@@ -223,9 +236,9 @@
   <div class="wrap">
     <div>
       <a href="#top">Home</a>
-      <a href="index.html#support">Support</a>
-      <a href="index.html#privacy">Privacy Policy</a>
-      <a href="mailto:[andymfuentes@yahoo.com]">Contact</a>
+            <a href="index.html#support">Support</a>
+            <a href="index.html#privacy">Privacy Policy</a>
+      <a href="mailto:andymfuentes@yahoo.com">Contact</a>
     </div>
     <div style="margin-top: 16px;">&copy; 2026 Alejandro. CourtSwipe is not affiliated with Wimbledon, the ATP, or the WTA.</div>
   </div>

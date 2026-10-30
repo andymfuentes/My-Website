@@ -111,7 +111,7 @@
 </head>
 <body>
 
-<header class="hero">
+<header class="hero" id="top">
   <div class="wrap">
     <h1>CourtSwipe</h1>
     <div class="tagline">Support &amp; Privacy Policy</div>
@@ -130,7 +130,7 @@
     <div class="card">
       <h3>Contact</h3>
       <p>Questions, bug reports, or feature requests:
-        <a href="mailto:andymfuentes@yahoo.com" style="color:var(--court-green)">[andymfuentes@yahoo.com]</a>
+        <a href="mailto:andymfuentes@yahoo.com" style="color:var(--court-green)">andymfuentes@yahoo.com</a>
       </p>
   
     </div>
@@ -154,37 +154,45 @@
 
     <div class="card">
       <h3>Can I change the match format (best of 3 vs. 5)?</h3>
-      <p>Yes — match settings live right on the Start screen, no separate Settings screen needed. Changes apply immediately, but since Start only shows between matches, they never affect one already in progress.</p>
+      <p>Yes. Tap <strong>Match Settings</strong> on the watch's Start screen and pick a preset: Friday Night Social, Ladder, Play Session, BestOf3 Match (the default) or BestOf5 Match, plus any you've created. Your choice applies immediately, but since Start only shows between matches, it never affects one already in progress.</p>
+    </div>
+    <div class="card">
+      <h3>Can I create my own format, or change a built-in one?</h3>
+      <p>Yes, in the iPhone companion app: tap the sliders icon to add a preset or edit one (match length, singles or doubles, games per set, rotating partners, No-Ad, 10-point deciding set). Edited built-ins can be reset to the original. Changes sync to your watch automatically. The watch itself only selects presets — the bigger screen makes editing much easier.</p>
     </div>
 
     <div class="card">
       <h3>Does CourtSwipe support doubles?</h3>
-      <p>Not currently — CourtSwipe is built for singles matches only.</p>
+      <p>Yes. Pick a doubles preset (such as Friday Night Social or Play Session) and the scoreboard shows the teams — You/P2 against P3/P4. You still swipe for your side or the other side. In a 3-set doubles match you can rotate partners each set (You/P2, then You/P3, then You/P4); the results then show every player's games individually and name the top two.</p>
+    </div>
+    <div class="card">
+      <h3>Can a match end in a tie?</h3>
+      <p>Yes, in the fixed-length formats (1 set or 3 sets of a set number of games), where every game is played. If the score finishes level, the result is a tie. Normal best-of-3 and best-of-5 matches always have a winner.</p>
     </div>
 
     <div class="card">
       <h3>Is there an iPhone app?</h3>
-      <p>No. CourtSwipe is a watch-only app — everything runs directly on your Apple Watch, with no phone required at all.</p>
+      <p>Yes, there's an optional companion app. It mirrors your live score from the watch, keeps an archive of finished matches, and is where you create and edit match-format presets. Scoring itself always happens on your Apple Watch, and the watch works with no phone at all — including all five built-in presets.</p>
     </div>
 
     <div class="card">
       <h3>Does CourtSwipe need an internet connection?</h3>
-      <p>No. CourtSwipe works entirely offline and never connects to the internet for anything.</p>
+      <p>No. CourtSwipe works entirely offline. It doesn't connect to the internet for anything.</p>
     </div>
 
     <div class="card">
       <h3>Where is my match history stored? Does it sync anywhere?</h3>
-      <p>Your match history is stored locally on your watch only. It isn't backed up to iCloud or any other service, and isn't shared anywhere — see the Privacy Policy below.</p>
+      <p>Your match history is stored locally on your watch. If you use the iPhone companion app, finished matches are also copied to your paired iPhone over the direct watch-to-phone connection (your Match Settings presets travel the same way). Nothing is backed up to iCloud or any other service, or shared anywhere — see the Privacy Policy below.</p>
     </div>
 
     <div class="card">
       <h3>I lost my match history after deleting/reinstalling — why?</h3>
-      <p>Match history is stored only on-device. Deleting the app removes it, the same as any other app's local data. There's currently no cloud backup.</p>
+      <p>Match history is stored only on your devices. Deleting the app removes the copy on that device, the same as any other app's local data. There's currently no cloud backup. Matches deleted on one device aren't deleted on the other, so the iPhone archive can still have matches you removed from the watch.</p>
     </div>
 
     <div class="card">
       <h3>How many matches does Match History keep?</h3>
-      <p>Your most recent 50 matches. Older matches are automatically removed as new ones are added.</p>
+      <p>Your most recent 50 matches on the watch (100 on the iPhone companion). Older matches are automatically removed as new ones are added.</p>
     </div>
 
     <div class="card">
@@ -198,7 +206,7 @@
       <ul>
         <li>What you were doing when it happened (e.g. "mid-way through a tiebreak")</li>
         <li>What you expected vs. what actually happened</li>
-        <li>Your Apple Watch model and watchOS version</li>
+        <li>Your Apple Watch model and watchOS version (and iPhone model and iOS version, if it involves the companion app)</li>
       </ul>
     </div>
   </div>
@@ -209,24 +217,30 @@
     <h2>Privacy Policy</h2>
     <p class="plain" style="margin-top:-8px;"><strong style="color:var(--text);">Effective date:</strong> [DATE — set before publishing]</p>
     <div class="plain">
-      <p>CourtSwipe ("the app") is developed by <strong>[Alejandro]</strong>. This policy explains what data the app does and does not collect.</p>
+      <p>CourtSwipe ("the app") is developed by <strong>Alejandro</strong>. This policy explains what data the app does and does not collect.</p>
     </div>
 
     <div class="card" style="border-color: rgba(212,255,77,0.3);">
       <h3 style="color:var(--court-green);">Summary</h3>
-      <p><strong>CourtSwipe does not collect, transmit, or share any personal data.</strong> Everything the app stores stays on your Apple Watch.</p>
+      <p><strong>CourtSwipe does not collect, transmit, or share any personal data.</strong> Everything the app stores stays on your Apple Watch and, if you use the optional iPhone companion app, your own paired iPhone.</p>
     </div>
 
     <h3 style="margin-top:28px; color:var(--text);">What CourtSwipe stores, and where</h3>
     <div class="plain">
-      <p>CourtSwipe saves a local history of your finished tennis matches — winner, final score, duration, and basic stats like break count and serve percentage — directly on your Apple Watch, using Apple's standard on-device storage (UserDefaults). This data:</p>
+      <p>CourtSwipe saves, using Apple's standard on-device storage (UserDefaults):</p>
       <ul>
-        <li>Never leaves your device</li>
-        <li>Is never transmitted over the internet — CourtSwipe makes no network connections of any kind</li>
+        <li><strong>Match history</strong> — your finished tennis matches: winner, final score, duration, and basic stats like break count and serve percentage, plus the opponent name you entered, if any</li>
+        <li><strong>Opponent names</strong> you've typed, so you can pick them again (on the watch only)</li>
+        <li><strong>Match Settings presets</strong> — the match formats you've created or edited (for example "best of 3, No-Ad"). These contain no personal information</li>
+      </ul>
+      <p>This data:</p>
+      <ul>
+        <li>Never leaves your own devices</li>
+        <li>Is never transmitted over the internet — CourtSwipe makes no network connections of any kind. The only transfer is Apple's on-device WatchConnectivity link between your Apple Watch and your paired iPhone, which sends your live score and finished matches to the iPhone companion app, and keeps your Match Settings presets the same on both devices</li>
         <li>Is not synced to iCloud or any other service</li>
         <li>Is not shared with the developer or any third party</li>
-        <li>Is automatically limited to your most recent 50 matches</li>
-        <li>Is deleted if you delete the app</li>
+        <li>Is automatically limited (your most recent 50 matches on the watch and 100 on the iPhone; 20 opponent names; 20 saved presets)</li>
+        <li>Is deleted if you delete the app (on the device you delete it from)</li>
       </ul>
     </div>
 
@@ -249,12 +263,12 @@
 
     <h3 style="margin-top:28px; color:var(--text);">Changes to this policy</h3>
     <div class="plain">
-      <p>If this policy ever changes (for example, if a future version adds optional iPhone sync), this document will be updated and the effective date above will change accordingly. As of this version, the statement above is complete and exhaustive — there is no hidden data collection beyond what's described here.</p>
+      <p>If this policy ever changes (for example, if a future version adds cloud sync), this document will be updated and the effective date above will change accordingly. As of this version, the statement above is complete and exhaustive — there is no hidden data collection beyond what's described here.</p>
     </div>
 
     <h3 style="margin-top:28px; color:var(--text);">Contact</h3>
     <div class="plain">
-      <p>Questions about this policy: <a href="mailto:andymfuentes@yahoo.com" style="color:var(--court-green)">[andymfuentes@yahoo.com]</a></p>
+      <p>Questions about this policy: <a href="mailto:andymfuentes@yahoo.com" style="color:var(--court-green)">andymfuentes@yahoo.com</a></p>
     </div>
 
   </div>
