@@ -245,17 +245,39 @@
   .device .setline{ font-size: 0.5rem; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
   .device .pt{ font-variant-numeric: tabular-nums; font-weight: 700; color: var(--ink); }
 
-  .watch{ width: 150px; height: 186px; border-radius: 34% / 28%; }
-  .watch .pt{ font-size: 1.15rem; }
-  .watch .controls{ margin-top: auto; display: flex; gap: 7px; justify-content: center; padding-top: 2px; }
-  .watch .ctrl{
-    width: 22px; height: 22px; border-radius: 999px;
-    display: flex; align-items: center; justify-content: center;
+  /* CourtSwipe watch mockup: player rows, big games score, undo bar */
+  .watch{
+    --cs-you: #dcff5c;
+    --cs-opp: #9cc8ff;
+    width: 170px; height: 200px; border-radius: 30% / 26%;
+    background: #000; padding: 34px 0 0; gap: 0; overflow: hidden;
   }
-  .watch .ctrl svg{ width: 11px; height: 11px; }
-  .watch .ctrl.undo{ background: rgba(241,243,238,0.12); color: var(--ink); }
-  .watch .ctrl.newgame{ background: var(--ball); color: var(--bg); }
-  .watch .ctrl.end{ background: var(--clay); color: var(--ink); }
+  .watch .cs-row{
+    display: flex; align-items: center; gap: 5px;
+    padding: 0 16px 0 18px; font-size: 0.68rem; font-weight: 800; line-height: 1.75;
+  }
+  .watch .cs-row .cs-name{ flex: 1; display: flex; align-items: center; gap: 4px; }
+  .watch .cs-row .cs-dot{ width: 4px; height: 4px; border-radius: 50%; background: currentColor; }
+  .watch .cs-row .cs-pt{ font-variant-numeric: tabular-nums; }
+  .watch .cs-row .cs-swipe{ width: 9px; height: 9px; color: #8a8a8a; }
+  .watch .cs-you{ color: var(--cs-you); }
+  .watch .cs-opp{ color: var(--cs-opp); }
+  .watch .cs-opp .cs-name{ padding-left: 8px; }
+  .watch .cs-divider{ height: 1px; background: #555; margin: 5px 6px 0; }
+  .watch .cs-games{
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 9px;
+    font-size: 2.6rem; font-weight: 900; line-height: 1; font-variant-numeric: tabular-nums;
+  }
+  .watch .cs-games .cs-dash{ width: 16px; height: 7px; background: #9a9ea6; }
+  .watch .cs-bar{
+    background: #1c1c1e; height: 46px; padding: 0 16px 0 28px;
+    display: flex; align-items: flex-start; padding-top: 4px;
+    font-size: 0.6rem; font-weight: 800; color: #fff;
+  }
+  .watch .cs-bar svg{ width: 9px; height: 9px; }
+  .watch .cs-undo{ flex: 1; display: flex; align-items: center; justify-content: center; gap: 3px; }
+  .watch .cs-sep{ width: 1px; height: 10px; background: #8a8a8a; margin: 0 10px; }
+  .watch .cs-reset{ color: #8a8a8a; display: flex; }
 
   .project-body h3{
     font-size: 1.3rem;
@@ -378,43 +400,45 @@
       <h2>Featured project</h2>
       <div class="project">
         <div class="devices">
-          <div class="device watch" role="img" aria-label="TapTennis on Apple Watch: You 40 serving, Opponent 30, with Undo and New Game buttons">
-            <span class="app-title">TapTennis</span>
-            <div class="row">
-              <span class="who">
-                <span class="name"><span class="serve"></span>You</span>
-                <span class="setline">6 &middot; Games 3</span>
-              </span>
-              <span class="pt">40</span>
+          <div class="device watch" role="img" aria-label="CourtSwipe on Apple Watch: You serving, 0 points each, games 0-0, with an Undo button">
+            <div class="cs-row cs-you">
+              <span class="cs-name"><span class="cs-dot"></span>You</span>
+              <span class="cs-pt">0</span>
+              <svg class="cs-swipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17-5-5 5-5"/><path d="m18 17-5-5 5-5"/></svg>
             </div>
-            <div class="row">
-              <span class="who">
-                <span class="name">Opponent</span>
-                <span class="setline">4 &middot; Games 2</span>
-              </span>
-              <span class="pt">30</span>
+            <div class="cs-row cs-opp">
+              <span class="cs-name">Opponent</span>
+              <span class="cs-pt">0</span>
+              <svg class="cs-swipe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 17 5-5-5-5"/><path d="m13 17 5-5-5-5"/></svg>
             </div>
-            <div class="controls">
-              <span class="ctrl undo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 7 4 12l5 5"/><path d="M4 12h11a5 5 0 0 1 0 10h-1"/></svg></span>
-              <span class="ctrl newgame"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg></span>
+            <div class="cs-divider"></div>
+            <div class="cs-games">
+              <span class="cs-you">0</span>
+              <span class="cs-dash"></span>
+              <span class="cs-opp">0</span>
+            </div>
+            <div class="cs-bar">
+              <span class="cs-undo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/></svg>Undo</span>
+              <span class="cs-sep"></span>
+              <span class="cs-reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span>
             </div>
           </div>
 
         </div>
         <div class="project-body">
-          <h3>TapTennis</h3>
-          <p>A tennis scoring app for Apple Watch built around fast, accurate match tracking — one tap per point, with automatic deuce and advantage handling, set progression, and tiebreaks. A result screen and on-device match history let you review how each match went.</p>
+          <h3>CourtSwipe</h3>
+          <p>A tennis scoring app for Apple Watch where you score with a swipe — right-to-left when you win the point, left-to-right when you don't. Games, sets, deuce, advantage, and tiebreaks are handled automatically, for singles or doubles, with custom match formats and on-device match history. An optional iPhone companion shows the live score and keeps an archive of finished matches.</p>
           <div class="tags">
             <span>Swift</span><span class="sep">&middot;</span>
             <span>SwiftUI</span><span class="sep">&middot;</span>
             <span>watchOS</span>
           </div>
           <div class="project-links">
-            <a class="project-link" href="taptennis/index.html">
+            <a class="project-link" href="courtswipe/promo.html">
               View app page
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
             </a>
-            <a class="project-link" href="taptennis/support.html#overview">
+            <a class="project-link" href="courtswipe/index.html#support">
               Support &amp; FAQ
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg>
             </a>
