@@ -5,7 +5,7 @@
       location = "group:index.html">
    </FileRef>
    <FileRef
-      location = "group:support.html">
+      location = "group:Support.html">
    </FileRef>
    <Group
       location = "group:courtswipe"
