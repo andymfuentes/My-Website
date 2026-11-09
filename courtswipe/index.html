@@ -1,332 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CourtSwipe — Support &amp; Privacy Policy</title>
-<meta name="description" content="CourtSwipe support, FAQs, and privacy policy.">
-<style>
-  :root {
-    --court-green: #d4ff4d;
-    --court-blue: #8fc7ff;
-    --bg: #0a0a0a;
-    --panel: #161616;
-    --text: #f5f5f5;
-    --muted: #9a9a9a;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-  }
-  .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-
-  header.hero {
-    padding: 64px 0 32px;
-    text-align: center;
-  }
-  h1 {
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: 800;
-    margin: 0 0 12px;
-    letter-spacing: -0.02em;
-  }
-  .tagline {
-    color: var(--muted);
-    font-size: 15px;
-  }
-
-  nav.jump {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    padding-bottom: 48px;
-  }
-  nav.jump a {
-    background: var(--panel);
-    border: 1px solid rgba(255,255,255,0.08);
-    color: var(--court-green);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    padding: 10px 20px;
-    border-radius: 999px;
-  }
-  nav.jump a:hover { border-color: var(--court-green); }
-
-  section {
-    padding: 8px 0 72px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  section h2 {
-    font-size: 24px;
-    margin: 40px 0 20px;
-    color: var(--court-green);
-  }
-  section h2:first-of-type { margin-top: 32px; }
-
-  .card {
-    background: var(--panel);
-    border-radius: 16px;
-    padding: 22px 26px;
-    border: 1px solid rgba(255,255,255,0.06);
-    margin-bottom: 16px;
-  }
-  .card h3 {
-    margin: 0 0 8px;
-    font-size: 16px;
-    color: var(--court-blue);
-  }
-  .card p { margin: 0; font-size: 14.5px; color: var(--text); }
-  .card p + p { margin-top: 8px; }
-
-  .plain p { color: var(--muted); font-size: 14.5px; }
-  .plain ul { color: var(--muted); font-size: 14.5px; padding-left: 20px; }
-  .plain li { margin-bottom: 6px; }
-  .plain strong { color: var(--text); }
-
-  .note {
-    font-size: 13px;
-    color: var(--muted);
-    background: rgba(212,255,77,0.06);
-    border: 1px dashed rgba(212,255,77,0.3);
-    border-radius: 12px;
-    padding: 14px 18px;
-    margin-top: 24px;
-  }
-
-  footer {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 32px 0 64px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-  }
-  footer a { color: var(--court-blue); text-decoration: none; margin: 0 10px; }
-  footer a:hover { text-decoration: underline; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support &amp; Privacy · CourtSwipe</title>
+  <meta name="description" content="Help for CourtSwipe: scoring on Apple Watch, match formats, syncing with iPhone, and contact. CourtSwipe collects no personal data.">
+  <style>
+    :root { --court: #0F5E3C; --court-dark: #0A4029; --lime: #DDF04D; --sky: #6EC6FF; --silver: #D7DEE2; --text: #F4F7F5; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font: 17px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+           background: var(--court-dark); color: var(--text); }
+    a { color: var(--lime); }
+    header { background: var(--court); border-bottom: 3px solid rgba(255,255,255,.15); }
+    nav, main, footer { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+    nav { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    nav .brand { font-weight: 800; color: var(--text); text-decoration: none; }
+    nav .brand span { color: var(--lime); }
+    nav .links a { color: var(--silver); text-decoration: none; margin-left: 18px; font-size: 15px; }
+    nav .links a:hover { color: var(--lime); }
+    main { padding-top: 40px; padding-bottom: 40px; }
+    section { scroll-margin-top: 20px; }
+    section + section { margin-top: 64px; padding-top: 40px; border-top: 1px solid rgba(255,255,255,.15); }
+    h1 { font-size: 34px; line-height: 1.2; margin: 0 0 8px; }
+    h2 { font-size: 22px; margin: 40px 0 12px; color: var(--lime); }
+    .lead { color: var(--silver); margin: 0 0 24px; }
+    .updated { color: var(--silver); opacity: .75; margin: 0 0 28px; }
+    .contact { background: var(--court); border-radius: 14px; padding: 22px 24px; display: flex; flex-wrap: wrap;
+               gap: 12px 24px; align-items: center; justify-content: space-between; }
+    .contact p { margin: 0; }
+    .button { display: inline-block; background: var(--lime); color: #12301F; font-weight: 700; text-decoration: none;
+              padding: 10px 20px; border-radius: 999px; }
+    details { background: var(--court); border-radius: 12px; margin: 10px 0; padding: 0 20px; }
+    summary { cursor: pointer; font-weight: 600; padding: 14px 0; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    summary::before { content: "+"; color: var(--lime); display: inline-block; width: 22px; font-weight: 800; }
+    details[open] summary::before { content: "−"; }
+    details > *:not(summary) { margin-top: 0; }
+    details > :last-child { padding-bottom: 14px; }
+    .summary { background: var(--court); border-left: 4px solid var(--lime); border-radius: 12px; padding: 18px 22px; }
+    .summary ul { margin: 6px 0 0; padding-left: 20px; }
+    li { margin: 4px 0; }
+    .you { color: var(--lime); font-weight: 700; }
+    .opp { color: var(--sky); font-weight: 700; }
+    kbd { background: rgba(0,0,0,.25); border-radius: 6px; padding: 1px 7px; font: inherit; font-size: 15px; }
+    footer { color: var(--silver); opacity: .7; font-size: 14px; padding-bottom: 40px; }
+  </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <a class="brand" href="promo.html">Court<span>Swipe</span></a>
+      <div class="links"><a href="promo.html">Home</a><a href="#support">Support</a><a href="#privacy">Privacy</a></div>
+    </nav>
+  </header>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <h1>CourtSwipe</h1>
-    <div class="tagline">Support &amp; Privacy Policy</div>
-  </div>
-</header>
+  <main>
+    <section id="support">
+      <h1>Support</h1>
+      <p class="lead">Answers to common questions, and a way to reach me if you need more help.</p>
 
-<nav class="jump">
-  <a href="#support">Support</a>
-  <a href="#privacy">Privacy Policy</a>
-</nav>
+      <div class="contact">
+        <p><strong>Need help, found a bug, or have an idea?</strong><br>I read every message and usually reply within two business days.</p>
+        <a class="button" href="mailto:SUPPORT_EMAIL?subject=CourtSwipe%20Support">Email Support</a>
+      </div>
 
-<section id="support">
-  <div class="wrap">
-    <h2>Support</h2>
+      <h2>Scoring on Apple Watch</h2>
+      <details>
+        <summary>How do I score a point?</summary>
+        <p>Swipe anywhere on the watch screen. Swipe <span class="you">right to left</span> to score for <span class="you">You</span>, and <span class="opp">left to right</span> for your <span class="opp">opponent</span>. Your score is always on the left in lime and your opponent's on the right in blue, matching the swipe directions. Each point plays a tap on your wrist.</p>
+      </details>
+      <details>
+        <summary>I scored the wrong point. How do I fix it?</summary>
+        <p>Tap <kbd>Undo</kbd> in the bottom bar. Undo takes back the last point, set or server change, one step at a time. In automatic formats you can even undo the match point from the summary screen with <kbd>Undo Last Point</kbd>.</p>
+      </details>
+      <details>
+        <summary>How do I change who serves?</summary>
+        <p>At the very start of a set (0–0), tap the score of the player who should serve. The <kbd>*</kbd> next to a name in the header marks the server. After that, the serve switches automatically every game, and every two points in a tiebreak.</p>
+      </details>
+      <details>
+        <summary>Where did the top and bottom bars go?</summary>
+        <p>That's <strong>Zoom Score</strong>: during a game the bars hide so the score fills the screen. They come back between games, or when you tap the score. You can turn it off in Settings (the gear in the bottom bar).</p>
+      </details>
+      <details>
+        <summary>What's the difference between Quick Match and a planned match?</summary>
+        <p><strong>Quick Match</strong> uses Manual scoring: you decide when each set ends. When a set is won, the bottom bar shows <kbd>Next Set</kbd> and <kbd>End</kbd>, plus <kbd>TB7</kbd> at 6–6 and <kbd>TB10</kbd> when the sets are level. Swipe the bar to switch between these buttons and Undo.</p>
+        <p><strong>Planned matches</strong> (added on your iPhone) use the format you chose: the watch closes sets, starts tiebreaks and ends the match automatically.</p>
+      </details>
+      <details>
+        <summary>What does "Deciding Point" mean?</summary>
+        <p>In No-Ad scoring there's no advantage: at 40–40 the next point wins the game. The watch shows "DECIDING POINT" when that point comes up. Turn on No-Ad in the match's format on iPhone, or in watch Settings before the first point.</p>
+      </details>
 
-    <div class="card">
-      <h3>Contact</h3>
-      <p>Questions, bug reports, or feature requests:
-        <a href="mailto:andymfuentes@yahoo.com" style="color:var(--court-green)">andymfuentes@yahoo.com</a>
-      </p>
-    </div>
+      <h2>Formats</h2>
+      <details>
+        <summary>Which formats are supported?</summary>
+        <p>Best of 1, 3 or 5 sets; 4, 6 or 8 games per set; a tiebreak to 7 at 6–6 (or 4–4 / 8–8 for short or long sets); an optional 10-point match tiebreak in place of the deciding set; No-Ad; and fixed-game sets (for example exactly 4 games per set, with the winner decided by total games). Quick Match is fully Manual.</p>
+      </details>
+      <details>
+        <summary>Can I change a match's format after it's played?</summary>
+        <p>No. The format can be edited while the match is upcoming, and is locked once it has a result, so your stats stay consistent.</p>
+      </details>
 
-    <h2 style="font-size:19px; color:var(--text); margin-top:36px;">Frequently asked questions</h2>
+      <h2>iPhone and syncing</h2>
+      <details>
+        <summary>My planned match doesn't appear on the watch.</summary>
+        <p>Check that:</p>
+        <ul>
+          <li>The match is scheduled between 12 hours ago and 14 days from now (up to 20 matches are sent).</li>
+          <li>Your Apple Watch is paired with this iPhone and the CourtSwipe watch app is installed (Watch app on iPhone → My Watch → scroll to Available Apps).</li>
+          <li>Open the iPhone app once after adding the match; it sends the list when it changes.</li>
+        </ul>
+        <p>On the watch, start a new match (Settings → New Match) to see the updated list.</p>
+      </details>
+      <details>
+        <summary>A result from the watch hasn't shown up on my iPhone.</summary>
+        <p>Open the iPhone app. Results arrive immediately when the iPhone app is running, and otherwise they're queued by the system and delivered the next time it opens. Keep Bluetooth on and your iPhone near the watch. Results are also stored on the watch, so nothing is lost while you wait.</p>
+      </details>
+      <details>
+        <summary>Can I use the iPhone app without an Apple Watch?</summary>
+        <p>Yes. Plan matches and enter results by hand with <kbd>Record Result</kbd> in any saved match. Swipe scoring and point-by-point stats need the watch app.</p>
+      </details>
+      <details>
+        <summary>Why don't some matches have Point Stats?</summary>
+        <p>Point stats come from the point log the watch records while you score. Results entered by hand on iPhone only have set scores.</p>
+      </details>
+      <details>
+        <summary>I reopened a finished match with Undo. What happens on my iPhone?</summary>
+        <p>The result is withdrawn from your iPhone until you finish the match again. A planned match goes back to your schedule, and a Quick Match result is removed.</p>
+      </details>
 
-    <div class="card">
-      <h3>How do I score a point?</h3>
-      <p>Swipe anywhere on the Play screen. Right to left scores a point for you; left to right scores a point for your opponent. A haptic tap confirms each one.</p>
-    </div>
+      <h2>Privacy and data</h2>
+      <details>
+        <summary>Is my data uploaded anywhere?</summary>
+        <p>No. There's no account and no server: your matches stay on your iPhone and Apple Watch. See the <a href="#privacy">Privacy Policy</a> below.</p>
+      </details>
+      <details>
+        <summary>How do I delete my matches?</summary>
+        <p>Swipe to delete in Schedule, or open a match and tap Delete. Deleting the app removes all of its data from that device.</p>
+      </details>
 
-    <div class="card">
-      <h3>My swipes aren't scoring. Why?</h3>
-      <p>Swipes are ignored while your wrist is down (the screen is dimmed) and while the workout is paused (the screen shows PAUSED). Raise your wrist, or swipe up and tap <strong>Resume</strong>.</p>
-    </div>
+      <h2>Requirements</h2>
+      <p>iPhone with iOS 27 or later. Apple Watch with watchOS 27 or later for scoring.</p>
+    </section>
 
-    <div class="card">
-      <h3>I swiped by mistake. How do I fix the score?</h3>
-      <p>Tap <strong>Undo</strong> (bottom left of the Play screen) to take back the last point. Keep tapping to go back further, all the way to the start of the match.</p>
-    </div>
+    <section id="privacy">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Effective November 8, 2026</p>
 
-    <div class="card">
-      <h3>How do I end a match early?</h3>
-      <p>Tap <strong>Exit</strong> (the door, bottom right of the Play screen) and confirm <strong>Exit Game</strong>. Games played so far are saved to Match History. With a workout running, you can also swipe up and tap <strong>End Match</strong>. Either way, the workout keeps running.</p>
-    </div>
+      <div class="summary">
+        <strong>The short version</strong>
+        <ul>
+          <li>CourtSwipe does not collect, store or share any personal data on any server.</li>
+          <li>There are no accounts, ads, analytics or tracking.</li>
+          <li>Your matches stay on your iPhone and your Apple Watch.</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>Can I change the match format (best of 3 or 5, No-Ad, doubles)?</h3>
-      <p>Yes. On the Start screen, tap the <strong>NEXT MATCH</strong> card, then <strong>Match Settings</strong>, and pick one of the seven formats: Friday Night Social, Ladder, Play Session, BestOf3 Match (the default), BestOf3 No-Ads, BestOf5 Match or BestOf5 No-Ads. Formats can't be edited or created yet.</p>
-    </div>
+      <h2>Who we are</h2>
+      <p>CourtSwipe (the "app") is an iPhone app with a companion Apple Watch app, made by Andy Fuentes, an independent developer ("I", "me"). This policy explains what happens to information you enter in the app.</p>
 
-    <div class="card">
-      <h3>Why did my format and opponent reset?</h3>
-      <p>The format, opponent and first server you pick last until you close the app. When you reopen CourtSwipe, it starts again at BestOf3 Match against "Opponent". Recent opponent names stay saved, so you can pick one again quickly.</p>
-    </div>
-
-    <div class="card">
-      <h3>Does CourtSwipe support doubles?</h3>
-      <p>Yes. Pick Friday Night Social or Play Session and the scoreboard shows the teams, You/P2 against P3/P4. You still swipe for your side or the other side. Friday Night Social rotates your partner each set (P2, then P3, then P4), and the summary shows each player's games and names the top two.</p>
-    </div>
-
-    <div class="card">
-      <h3>Can a match end in a tie?</h3>
-      <p>Yes, in the fixed-length formats (Friday Night Social and Play Session), where every game is played. Best of 3 and best of 5 always have a winner.</p>
-    </div>
-
-    <div class="card">
-      <h3>Are my workouts saved to Apple Health?</h3>
-      <p>Yes. When a workout ends (End Workout, auto-stop, or turning workouts off), it is saved to Health as a <strong>Tennis</strong> workout with its duration, heart rate and active calories. It appears in the Health and Fitness apps and counts toward your Activity rings. Ending a match doesn't end the workout, because one workout can cover several matches.</p>
-    </div>
-
-    <div class="card">
-      <h3>It says "Couldn't start a workout." What do I do?</h3>
-      <p>CourtSwipe needs Health access to run a workout. On your watch, open <strong>Settings → Health → Apps → CourtSwipe</strong>, or on iPhone open the <strong>Health</strong> app, tap your profile, then <strong>Apps → CourtSwipe</strong>. Turn the permissions on. Scoring works without it.</p>
-    </div>
-
-    <div class="card">
-      <h3>Can I score without a workout?</h3>
-      <p>Yes. Turn <strong>Workout</strong> off in Settings. The Play screen then shows only the score, with no heart rate or calories.</p>
-    </div>
-
-    <div class="card">
-      <h3>What is auto-stop?</h3>
-      <p>In Settings you can have the workout end itself after 1 or 2 hours of active time (paused time doesn't count), in case you forget to end it. The workout is saved, and scoring carries on.</p>
-    </div>
-
-    <div class="card">
-      <h3>Is there an iPhone app?</h3>
-      <p>Not yet. CourtSwipe runs entirely on Apple Watch. An iPhone companion is planned for a later version.</p>
-    </div>
-
-    <div class="card">
-      <h3>Does CourtSwipe need an internet connection?</h3>
-      <p>No. CourtSwipe works entirely offline.</p>
-    </div>
-
-    <div class="card">
-      <h3>Where is my match history stored?</h3>
-      <p>On your Apple Watch only. It isn't backed up to iCloud or shared anywhere. See the Privacy Policy below.</p>
-    </div>
-
-    <div class="card">
-      <h3>How many matches does Match History keep?</h3>
-      <p>Your 50 most recent. Older matches are removed automatically as new ones are added.</p>
-    </div>
-
-    <div class="card">
-      <h3>I lost my match history after deleting the app. Why?</h3>
-      <p>Match history is stored only on the watch, so deleting the app removes it. Workouts saved to Apple Health are not affected.</p>
-    </div>
-
-    <div class="card">
-      <h3>Does CourtSwipe cost anything beyond the purchase price?</h3>
-      <p>No. CourtSwipe is a one-time $1.99 purchase with no in-app purchases, no subscriptions and no ads.</p>
-    </div>
-
-    <h2 style="font-size:19px; color:var(--text); margin-top:36px;">Reporting a bug</h2>
-    <div class="plain">
-      <p>Please include:</p>
+      <h2>Information the app stores</h2>
+      <p>To work, the app keeps the following information <strong>only on your own devices</strong>:</p>
       <ul>
-        <li>What you were doing when it happened (for example, "halfway through a tiebreak")</li>
-        <li>What you expected, and what actually happened</li>
-        <li>Your Apple Watch model and watchOS version</li>
+        <li><strong>Matches you plan:</strong> the opponent name you type, the date and time, and the scoring format.</li>
+        <li><strong>Match results:</strong> the games won in each set and, for matches scored on Apple Watch, a log of each point (who won it, who served, and when it was played).</li>
+        <li><strong>Settings:</strong> display preferences, such as Zoom Score on the watch.</li>
       </ul>
-    </div>
-  </div>
-</section>
+      <p>This information never leaves your devices except as described in the next section. I can't see it, and I have no server that receives it.</p>
 
-<section id="privacy">
-  <div class="wrap">
-    <h2>Privacy Policy</h2>
-    <p class="plain" style="margin-top:-8px;"><strong style="color:var(--text);">Effective date:</strong> [DATE — set before publishing]</p>
-    <div class="plain">
-      <p>CourtSwipe ("the app") is developed by <strong>Alejandro</strong>. This policy explains what data the app uses, where it's kept, and what it never does.</p>
-    </div>
+      <h2>Sharing between your iPhone and Apple Watch</h2>
+      <p>The app sends your upcoming matches from your iPhone to your paired Apple Watch, and finished match results from the watch back to your iPhone. This uses Apple's WatchConnectivity framework, which transfers data directly between your own devices. It doesn't go through any server operated by me.</p>
 
-    <div class="card" style="border-color: rgba(212,255,77,0.3);">
-      <h3 style="color:var(--court-green);">Summary</h3>
-      <p><strong>CourtSwipe does not collect, transmit or share any personal data.</strong> The developer never receives any of your data. Your match history stays on your Apple Watch. Workout data you allow CourtSwipe to use stays in Apple Health, which you control.</p>
-    </div>
-
-    <h3 style="margin-top:28px; color:var(--text);">Apple Health (HealthKit)</h3>
-    <div class="plain">
-      <p>CourtSwipe can run a tennis workout while you play. With your permission it:</p>
+      <h2>What the app does not do</h2>
       <ul>
-        <li><strong>Reads</strong> your <strong>heart rate</strong> and <strong>active energy (calories)</strong> during a workout, to show them live and on the end-of-match summary.</li>
-        <li><strong>Saves</strong> each finished <strong>tennis workout</strong> to Apple Health, with its duration, heart rate and active calories, so it appears in the Health and Fitness apps and counts toward your Activity rings.</li>
+        <li>It doesn't require an account or sign-in.</li>
+        <li>It doesn't connect to the internet or to any server operated by me or anyone else.</li>
+        <li>It contains no advertising, analytics or third-party tracking code (SDKs).</li>
+        <li>It doesn't track you across apps or websites.</li>
+        <li>It doesn't access your location, health data, contacts, photos, camera or microphone.</li>
+        <li>It doesn't sell or share any information with anyone.</li>
       </ul>
-      <p>You choose these permissions in the Health permission sheet, and you can change them at any time: on Apple Watch in <strong>Settings → Health → Apps → CourtSwipe</strong>, or on iPhone in the <strong>Health</strong> app (your profile → <strong>Apps → CourtSwipe</strong>). If you don't grant access, scoring still works without workout features.</p>
-      <p>Health data:</p>
-      <ul>
-        <li>Is used only to provide these workout features on your device</li>
-        <li>Is never sent to the developer, never transmitted over the internet, and never shared with third parties</li>
-        <li>Is never used for advertising, marketing or data mining</li>
-        <li>Is not copied into CourtSwipe's own storage: match history does not include heart rate or calories</li>
-      </ul>
-      <p>Workouts saved to Apple Health are managed by Apple's Health app. Deleting CourtSwipe does not delete them; you can delete them in the Health app.</p>
-    </div>
 
-    <h3 style="margin-top:28px; color:var(--text);">What CourtSwipe stores on your watch</h3>
-    <div class="plain">
-      <p>Using Apple's standard on-device storage (UserDefaults), CourtSwipe keeps:</p>
-      <ul>
-        <li><strong>Match history</strong>: your recent matches, with the winner, set scores, match duration, serve and break statistics, and the opponent name you entered, if any</li>
-        <li><strong>Opponent names</strong> you've typed, so you can pick them again</li>
-        <li><strong>Settings</strong>: whether workouts are on, and the workout auto-stop time</li>
-      </ul>
-      <p>This data:</p>
-      <ul>
-        <li>Stays on your Apple Watch and is never transmitted. CourtSwipe makes no network connections of any kind</li>
-        <li>Is not synced to iCloud or any other service</li>
-        <li>Is not shared with the developer or any third party</li>
-        <li>Is limited automatically: your most recent 50 matches and 20 opponent names</li>
-        <li>Is deleted when you delete the app</li>
-      </ul>
-    </div>
+      <h2>Backups</h2>
+      <p>If you use iCloud Backup or back up your iPhone to a computer, the app's data is included in that backup, like any other app's. Apple handles those backups under <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</p>
 
-    <h3 style="margin-top:28px; color:var(--text);">What CourtSwipe does NOT do</h3>
-    <div class="plain">
-      <ul>
-        <li>No account or sign-in</li>
-        <li>No analytics, crash reporting services or usage tracking</li>
-        <li>No advertising or ad networks</li>
-        <li>No third-party SDKs or dependencies</li>
-        <li>No access to your contacts, location, photos, microphone or camera</li>
-        <li>No cookies or web tracking (the app has no web views and makes no web requests)</li>
-      </ul>
-    </div>
+      <h2>Deleting your data</h2>
+      <p>You can delete any match in the app (swipe to delete in Schedule, or Delete in the match editor). Deleting the app from your iPhone or Apple Watch removes all of its data from that device.</p>
 
-    <h3 style="margin-top:28px; color:var(--text);">Children's privacy</h3>
-    <div class="plain">
-      <p>CourtSwipe collects no data from anyone, so it does not collect information from children.</p>
-    </div>
+      <h2>Children</h2>
+      <p>The app is suitable for all ages and collects no personal information from anyone, including children under 13.</p>
 
-    <h3 style="margin-top:28px; color:var(--text);">Changes to this policy</h3>
-    <div class="plain">
-      <p>If this policy changes (for example, if a future version adds an iPhone app or cloud sync), this page will be updated and the effective date above will change. This policy describes everything the app does with data. There is no other data collection.</p>
-    </div>
+      <h2>Changes to this policy</h2>
+      <p>If the app ever starts handling data differently, this page will be updated before that version is released, and the effective date above will change.</p>
 
-    <h3 style="margin-top:28px; color:var(--text);">Contact</h3>
-    <div class="plain">
-      <p>Questions about this policy: <a href="mailto:andymfuentes@yahoo.com" style="color:var(--court-green)">andymfuentes@yahoo.com</a></p>
-    </div>
+      <h2>Contact</h2>
+      <p>Questions about privacy? Email <a href="mailto:SUPPORT_EMAIL">SUPPORT_EMAIL</a>.</p>
+    </section>
+  </main>
 
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div>
-      <a href="#top">Home</a>
-      <a href="#support">Support</a>
-      <a href="#privacy">Privacy Policy</a>
-    </div>
-    <div style="margin-top: 16px;">&copy; 2026 Alejandro. CourtSwipe is not affiliated with Wimbledon, the ATP, or the WTA.</div>
-  </div>
-</footer>
-
+  <footer>© 2026 Alejandro. Apple Watch and iPhone are trademarks of Apple Inc.</footer>
 </body>
 </html>
